@@ -135,3 +135,13 @@ b'0[_PRPjcW"N_#bc"[N#[_#R#NXbN_[#RXSl'
 "3"の前に18文字、"}"の後に1文字あり、これがいわゆるアソビになります。
 
 よって、正規のものと合わせて20通りの候補が生まれたようですね。
+
+## その他
+
+問題文にもある、Alpaillerってホントに何なんでしょうか？
+
+たぶんAlpacaと何かを掛け合わせた造語なのかなと予想して、paillerでWeb検索してみると・・・
+
+Paillier暗号 - Wikipedia https://ja.wikipedia.org/wiki/Paillier%E6%9A%97%E5%8F%B7
+
+Paillier暗号というのがあり、説明を読んでみると今回の暗号化方式であることがわかりました。
