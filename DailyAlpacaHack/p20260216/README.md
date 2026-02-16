@@ -140,9 +140,9 @@ b'0[_PRPjcW"N_#bc"[N#[_#R#NXbN_[#RXSl'
 
 ## その他
 
-問題文にもある、Alpaillerってホントに何なんでしょうか？
+問題文にもある、Alpaillierってホントに何なんでしょうか？
 
-たぶんAlpacaと何かを掛け合わせた造語なのかなと予想して、paillerでWeb検索してみると・・・
+たぶんAlpacaと何かを掛け合わせた造語なのかなと予想して、試しにpaillierでWeb検索してみると・・・
 
 Paillier暗号 - Wikipedia https://ja.wikipedia.org/wiki/Paillier%E6%9A%97%E5%8F%B7
 
