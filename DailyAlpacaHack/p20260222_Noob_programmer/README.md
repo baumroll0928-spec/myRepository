@@ -70,7 +70,7 @@ void ask_room_number() {
     printf("Ok! I'll visit your room!");
 }
 ```
-ask_room_numberといっているのに変数名がageになっているところも非常にツッコみたいところではありますが、今回は関係なさそうです。
+ask_room_numberといっているのに変数名がageになっているところも非常にツッコみたいところではありますが、今回の問題を解く上では全く関係なさそうです。
 
 それよりもこのNoob programmer(初心者プログラマー)、もっと大きいミスをやらかしています。
 
