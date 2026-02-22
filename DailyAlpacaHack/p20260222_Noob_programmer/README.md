@@ -417,7 +417,7 @@ Input your name> Welcome! baumroll123456789abcdef@@Input your room number> Alpac
 * プログラムがユーザーにnameの入力を求める。
 * 攻撃者はname[24]～name[31]がprintf@pltのGOTを指すようにデータを注入する。
 * プログラムがユーザーにage(?)の入力を求める。
-* 攻撃者はprintf@pltのGOTがwin関数のアドレスを指すようにデータを注入する。
+* 攻撃者はprintf@pltのGOTエントリがwin関数のアドレスを指すようにデータを注入する。
 * プログラムはprintf@pltに飛んだあとprintfの実体に飛ぼうとして騙されてwin関数に飛んでしまう。
 * 攻撃者はシェルを取る。
 
