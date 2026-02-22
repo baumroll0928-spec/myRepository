@@ -390,7 +390,7 @@ open('c:/temp/ctf/payload', 'wb').write(b)
 今度こそうまくいってほしいです。（祈り）
 ```sh
 $ ./chal < payload
-Input your name> Welcome! baumroll123456789abcdef@@Input your room number> chal  payload
+Input your name> Welcome! baumroll123456789abcdef@@Input your room number> asm.txt  chal  payload
 ```
 きた！！きました！！
 
