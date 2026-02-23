@@ -376,7 +376,7 @@ GOTは-no-pieオプションによって固定され、かつ、そこはコー�
 そうすると、入力値はこうなります。
 ```
 Input your name> てきとーな24文字 + 0x00000000404008のバイナリ（リトルエンディアン）
-Input your room number> 0xffffff8dを10進数に変換したもの
+Input your room number> 0x4011b6を10進数に変換したもの
 ```
 ペイロードも修正します。
 ```py
