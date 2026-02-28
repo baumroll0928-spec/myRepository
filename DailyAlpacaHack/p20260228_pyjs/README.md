@@ -72,7 +72,7 @@ code = '1 // 1; print("I LOVE ALPACA"); exit(0)\rconsole.log("I LOVE SECCON")'
 ```
 に書き換えて実行してみます。
 
-※Windows環境ではそのままでは実行できないようです。Linux系環境で実行しましょう。
+※Windows環境ではそのままでは実行できないようです。Linux系環境で実行しましょう。（python3にsudoを付ける必要があるかも？）
 ```
 Wow... Alpaca{REDACTED}
 ```
