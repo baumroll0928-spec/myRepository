@@ -187,7 +187,7 @@ while len(iv_ciphertext) > 16:
 ```
 すると、ちゃんと動いていることがわかりました。ただ時間がかかっていただけのようです。
 
-※先週のDancing Cursorで出てきたANSIエスケープシーケンスを使ってみました。
+※以前のDancing Cursorの問題で出てきたANSIエスケープシーケンスを使ってみました。
 ```
 [x] Opening connection to 34.170.146.252 on port 60240
 [x] Opening connection to 34.170.146.252 on port 60240: Trying 34.170.146.252
