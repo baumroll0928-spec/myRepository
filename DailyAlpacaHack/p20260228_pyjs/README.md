@@ -46,7 +46,7 @@ print("I LOVE ALPACA")
 
 ※Pythonで複数の文をセミコロンで区切ると1行にまとめて書くことができます。
 
-あとはNodeの出力ですが、以前free-commentという問題でも扱われたように、\rを使って改行し、2行目で出力することにします。
+あとはNodeの出力ですが、以前free-commentという問題でも扱われたように、\r(0x0D : CR)を使って改行し、2行目で出力することにします。
 ```
 1 // 1; print("I LOVE ALPACA")
 console.log("I LOVE SECCON")
