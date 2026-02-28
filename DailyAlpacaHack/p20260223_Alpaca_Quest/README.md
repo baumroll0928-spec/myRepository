@@ -94,7 +94,7 @@ apkファイルもワードやエクセルのファイルと同様にその正�
 
 ZIPファイルなので展開してみます。
 ```sh
-unzip alpaca-quest.apk -d files
+$ unzip alpaca-quest.apk -d files
 ```
 
 展開できたら、フラグを探してみます。
