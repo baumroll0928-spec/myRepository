@@ -57,8 +57,9 @@ keyとXORをとることでフラグの全ての文字が必ず変化するこ�
 ```py
 from pwn import *
 
+# 接続
 p = remote("34.170.146.252", 10790)
-# 読み捨て
+# 最初は読み捨て
 p.recvuntil(b'flag...')
 cnt = 0
 while True:
