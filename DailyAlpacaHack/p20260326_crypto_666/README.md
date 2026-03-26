@@ -57,6 +57,8 @@ for i in range(1, 10000, 2):
 else:
     print("not found.")
 ```
+※for ... elseは、forの中でbreakされなかったときだけelseの部分を実行する、Pythonの独特な文法です。
+
 結果
 ```
 found. 113
