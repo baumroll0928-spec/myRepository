@@ -44,7 +44,7 @@ print(cts)
 
 keyがわかれば、$`cts[0] = key \oplus ct[0]`$から$`ct[0] = cts[0] \oplus key`$が求まり、以降順次$`cts[i] = ct[i] \oplus ct[i-1]`$から$`ct[i] = cts[i] \oplus ct[i-1]`$が求まりますが、`key`はわかりません。
 
-しかし、この問題に関して言えば、`flag = "Alpaca{REDACTED}"`やフラグ入力欄のプレースホルダから、フラグ形式が`Alpaca{.*}`であることがわかっています。
+しかし、この問題に関して言えば、`flag = "Alpaca{REDACTED}"`やフラグ入力欄のプレースホルダから、フラグ形式が`Alpaca{.+}`であることがわかっています。
 
 よって、`ct[0] = rot13_char('A') = 'N'`となり、ここから順次`ct[i]`を求めていくことができます。
 
