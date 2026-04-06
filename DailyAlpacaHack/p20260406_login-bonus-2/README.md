@@ -157,7 +157,7 @@ Password: ABCDE
 
 Breakpoint 1, 0x00000000004011f5 in main ()
 ```
-ここで、スタックの内容をスタックポインタ側から32バイト分出してみます。
+ここで、スタックの内容をスタックポインタ側から32バイト分抽出してみます。
 ```sh
 (gdb) x/32bx $rsp
 0x7fffffffdd20: 0xc8    0xde    0xff    0xff    0xff    0x7f    0x00    0x00
