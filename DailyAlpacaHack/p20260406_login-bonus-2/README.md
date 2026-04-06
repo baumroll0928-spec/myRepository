@@ -70,7 +70,7 @@ void setup() {
 
 よって、認証のif文条件を突破してelse部に入るのは無理そうです。
 
-### 案２：main関数の戻り先を`debug_report(argv[0], "FLAG: %s", g_flag);`のあたりに向ける
+### 案２：main関数の戻り先をelse部の中に向ける
 
 これもダメでした。
 
