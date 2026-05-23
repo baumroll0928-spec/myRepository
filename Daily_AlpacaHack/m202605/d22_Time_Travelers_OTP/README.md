@@ -28,7 +28,7 @@ app.post("/auth", async (c) => {
 
 OTP(One Time Password)は、1回しか使えない使い捨てのパスワードの総称です。SMSで送られてくる認証コードなどで見たことがある方も多いと思います。
 
-そのうち、今回の問題のように一定時間（標準は30秒）で区切った現在時刻を使って発行されるものをTOPT(Time-based One Time Password)といいます。
+そのうち、今回の問題のように一定時間（標準は30秒）で区切った現在時刻を使って発行されるものをTOTP(Time-based One Time Password)といいます。
 
 この問題のサーバーでは、2つのサービス`current`と`future`が稼働しています。
 
