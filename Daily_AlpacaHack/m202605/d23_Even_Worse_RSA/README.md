@@ -100,13 +100,13 @@ $`e'd' = k \phi'(p) + 1`$
 
 と表すことができます。これを先ほどの式にあてはめると、
 
-$`m^{g e' d'} = m^{g(k \phi'(p) + 1)} = m^{g k \phi'(p) + g} = m^{k \phi(p) + g} = m^{\phi(p)} m^{g}`$
+$`m^{g e' d'} = m^{g(k \phi'(p) + 1)} = m^{g k \phi'(p) + g} = m^{k \phi(p) + g} = (m^{\phi(p)})^{k} m^{g}`$
 
 となります。
 
 フェルマーの小定理により、$`p`$を法とする世界では$`\phi(p)`$乗は（$`x \equiv 0 \pmod{p}`$ を満たす $`x`$ 以外は）何でも1にしてしまうので、
 
-$`m^{\phi(p)} m^{g} \equiv m^{g} \pmod{p}`$
+$`(m^{\phi(p)})^{k} m^{g} \equiv m^{g} \pmod{p}`$
 
 となります。
 
