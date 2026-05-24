@@ -159,6 +159,8 @@ for r, _ in roots:
 
 ものすごく怪しいです。
 
+違ったら他の5つも試せばいいだけの話なので、とりあえずこれでやってみます。
+
 というわけで、再びPythonに戻り、
 ```py
 from Crypto.Util.number import long_to_bytes
