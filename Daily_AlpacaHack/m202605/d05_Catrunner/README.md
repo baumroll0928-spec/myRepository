@@ -54,7 +54,7 @@ Alpaca{*** REDACTED ***}
 
 [os.path.join(path, /, *paths)](https://docs.python.org/ja/3/library/os.path.html#os.path.join)
 
-私は英語はよく読めませんが、セグメントが絶対パスの場合、それまでのパスを全て無視すると書いてあり、LinuxとWindowsのそれぞれの例があげられているようです。
+私は英語はよく読めませんが、「セグメントが絶対パスの場合、それまでのパスを全て無視する」と書いてあり、LinuxとWindowsのそれぞれの例があげられているようです。
 
 今回の問題の場合、`/app`に絶対パスの`/flag.txt`を結合しようとすることでそれより前の`/app/`が無視されて`/flag.txt`になってしまったというわけですね。
 
