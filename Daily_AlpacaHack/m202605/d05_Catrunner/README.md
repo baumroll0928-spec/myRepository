@@ -50,7 +50,7 @@ Alpaca{*** REDACTED ***}
 
 なぜこれでうまくいくのでしょうか？
 
-調べてみると、この問題のポイントは`os.path.join`関数の仕様にありました。
+調べてみると、その理由は`os.path.join`関数の仕様にありました。
 
 [os.path.join(path, /, *paths)](https://docs.python.org/ja/3/library/os.path.html#os.path.join)
 
