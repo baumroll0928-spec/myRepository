@@ -61,7 +61,7 @@ OTP(One Time Password)は、1回しか使えない使い捨てのパスワード
 MQJZZVVPER3OXQ432ZS2LHPAEPHWWKAA
 ```
 
-このコードはsecretをBase32でエンコードしたものなので、例えば[CyberChef](https://gchq.github.io/CyberChef/)を使って`From Base32`+`To Hex`で`secret`の16進数値を得ます。[実行例](https://gchq.github.io/CyberChef/#recipe=From_Base32('A-Z2-7%3D',true)To_Hex('None',0)&input=TVFKWlpWVlBFUjNPWFE0MzJaUzJMSFBBRVBIV1dLQUE)
+このコードは`secret`をBase32でエンコードしたものなので、例えば[CyberChef](https://gchq.github.io/CyberChef/)を使って`From Base32`+`To Hex`で`secret`の16進数値を得ます。[実行例](https://gchq.github.io/CyberChef/#recipe=From_Base32('A-Z2-7%3D',true)To_Hex('None',0)&input=TVFKWlpWVlBFUjNPWFE0MzJaUzJMSFBBRVBIV1dLQUE)
 ```
 64139cd6af2476ebc39bd665a59de023cf6b2800
 ```
