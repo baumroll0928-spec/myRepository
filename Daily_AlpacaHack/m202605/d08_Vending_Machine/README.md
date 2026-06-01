@@ -20,10 +20,6 @@ C言語やPythonなどのプログラミングには多少心得があり、入�
 
 自販機でフラグを購入してください。
 ```py
-import os
-
-FLAG = os.getenv("FLAG", "Alpaca{dummy}")
-
 class VendingMachine:
     def __init__(self):
         self.stock = 'a'*30 + 'b'*60 + 'c'*20 + 'd'*50 + 'e'*40 + 'f' # 'aaa...eeef'
