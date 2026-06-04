@@ -1,6 +1,6 @@
 # Small e
 
-私ももうDaily AlpacaHack歴６か月ですからね、さすがにRSAのEasyは楽勝でした。
+初心者だった私ももうDaily AlpacaHack歴６か月ですからね、さすがにRSAのEasyは楽勝でした。
 
 ## 問題
 
