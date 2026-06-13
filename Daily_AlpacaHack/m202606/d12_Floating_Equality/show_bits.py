@@ -7,8 +7,8 @@ def bits(x_str:str)->str:
         i = x_str[:dot_pos]
         f = x_str[dot_pos + 1:]
     s = f"{int(i):b}."
-    n = int(f.ljust(24, "0"))
     m = 24
+    n = int(f.ljust(m, "0"))
     base = pow(10, m)
     for _ in range(m):
         n *= 2
