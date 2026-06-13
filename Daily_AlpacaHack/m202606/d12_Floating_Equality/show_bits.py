@@ -1,4 +1,4 @@
-def bits(x_str:str):
+def bits(x_str:str)->str:
     dot_pos = x_str.find(".")
     if dot_pos < 0:
         i = x_str
