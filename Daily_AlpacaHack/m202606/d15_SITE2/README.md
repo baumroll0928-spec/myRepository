@@ -35,7 +35,7 @@ PNG画像のバイナリ構造上最初の16バイトは決まっていること
 
 この問題は3月11日の過去問「Find XOR key」の応用版のようです。
 
-前回と同じように`key`が繰り返し使われているため、平文の1周分の既知部分があれば逆算して`key`を復元できます。
+前回と同じように`key`が繰り返し使われているため、平文の1周分の既知部分があれば逆算して`key`を復元できそうです。
 
 ところで、PNG画像のバイナリ構造は通常下記のようになっています。
 
@@ -71,11 +71,43 @@ CRC: 4バイト
 ```
 となります。
 
+以上より、正しいPNGファイルの先頭16バイトはどんな画像でも
+```
+バイナリ：\x89 P N G \r \n \x1a \n \x00 \x00 \x00 \r I H D R
+１６進数：89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52
+```
+であることがわかりました。
 
+この問題で繰り返し使われる`key`の長さも16バイトなので、暗号文の先頭16バイトとこの正規のPNGの先頭16バイトのXORを取れば`key`が求められます。
 
+解き方がわかったのでソルバーを書いてみます。
 
+固定の16バイトを決め打ちで書き込んでも良いですが、今回はPillowライブラリでてきとーなPNG画像データを作ってそこから取ってみました。
 
+```py
+from PIL import Image
+from io import BytesIO
 
+img = Image.new("RGB", (16, 16), (0, 0, 0)) # 16×16の真っ黒な画像
+buf = BytesIO()
+img.save(buf, format="PNG")
+img_bin = buf.getvalue()
+png_head = img_bin[:16]
+
+with open("flag.png.xored", "rb") as f_in:
+    png = bytearray(f_in.read())
+
+key_list = []
+for i in range(16):
+    key_list.append(png[i] ^ png_head[i])
+key = bytes(key_list)
+
+for i in range(len(png)):
+    png[i] ^= key[i % len(key)]
+
+with open("flag.png", "wb") as f_out:
+    f_out.write(png)
+```
 
 
 
