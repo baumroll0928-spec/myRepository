@@ -1,117 +1,81 @@
-# SITE/2
+# Xored PNG
 
 ## 問題
 
-HTTP/2 に対応した Web サイトを作ったんだけど、アクセスできなくて困ってます
+PNG画像がXORされてしまいました……
 
 ```js
-import http2 from "node:http2";
+import os
 
-const server = http2.createServer();
+key_hex = os.getenv("KEY_HEX", "00112233445566778899aabbccddeeff")
+key = bytes.fromhex(key_hex)
+assert len(key) == 16
 
-server.on("stream", (stream) => {
-    stream.end("🦙 Welcome to my website 🦙\nFlag: Alpaca{REDACTED}");
-});
+with open("flag.png", "rb") as f_in:
+    png = bytearray(f_in.read())
 
-server.listen(3000, () => { console.log("http://localhost:3000"); });
+for i in range(len(png)):
+    png[i] ^= key[i % len(key)]
+
+with open("flag.png.xored", "wb") as f_out:
+    f_out.write(png)
 ```
 
 ## 概要
 
-`docker compose up`してchromeブラウザで`http://localhost:3000/`にアクセスしてみると、たしかに
-```
-このページは動作していません
-localhost から無効な応答が送信されました。
-ERR_INVALID_HTTP_RESPONSE
-```
-と表示されてしまいます。
+もともとあった画像`flag.png`が何らかの16バイトの`key`でXORされた`flag.png.xord`が与えられています。
 
-どうすればこのページにアクセスしてフラグを確認することができるのでしょうか？
+`key`がわかればもう一度同じ`key`でXORすれば`flag.png`を復元できますが、どうすればいいのでしょうか？
+
+## 方針
+
+PNG画像のバイナリ構造上最初の16バイトは決まっていることを利用する。
 
 ## 解法
 
-まず「HTTP/2ってなに？」ってなったので調べるところから始めました。
+この問題は3月11日の過去問「Find XOR key」の応用版のようです。
 
-HTTP/2は、Webサーバーからデータを取得するプロトコルで、HTTP/1.1のパフォーマンスを向上させる目的で誕生しました。
+前回と同じように`key`が繰り返し使われているため、平文の1周分の既知部分があれば逆算して`key`を復元できます。
 
-いろいろなサイトを見て回りましたがだいたい次のようなことが書いてありました。
-
-メリット
-
-- Webサイトの表示速度が向上する
-- サーバーやネットワークの負荷が下がる
-- モバイル環境や遅延のある回線でも体感速度が向上しやすい
-
-デメリット
-
-- HTTPS暗号化が必須
-- パケットロスに弱い
-
-デメリットの１つめが怪しいです。
-
-そこで、Nodeのhttp2モジュールについて調べてみたところ、
-```js
-import http2 from "node:http2";
-import fs from "node:fs";
-
-const options = {
-    key: fs.readFileSync("localhost.key"),
-    cert: fs.readFileSync("localhost.crt"),
-};
-const server = http2.createSecureServer(options);
-
-server.on("stream", (stream) => {
-    stream.respond({
-        ":status": 200,
-        "content-type": "text/plain; charset=utf-8"
-    });
-    stream.end("🦙 Welcome to my website 🦙\nFlag: Alpaca{REDACTED}");
-});
-
-server.listen(3000, () => { console.log("https://localhost:3000"); });
-```
-のように、`http2.createServer`ではなく`http2.createSecureServer`を使わないといけないようです。
-
-※これを実際に動かしたいときは、opensslを使って自己署名証明書を発行し、Dockerfileを書き換えてコンテナ内に取り込むといった手順が必要になります。
-
-この方法で`https://localhost:3000`にアクセスすると、警告は出るもののページが表示されることを確認しました。
-
-本番環境も同じように直せるならこれでいいですが、そんなことができてしまったらCTFの問題として成立しないので、別の方法を使う必要があります。
-
-ブラウザからではなくcurlコマンドで取得しようと試みましたがダメでした。
-```
-$ curl http://localhost:3000
-curl: (1) Received HTTP/0.9 when not allowed
-```
-なんとかできないでしょうか？
-
-調べてみると、`--http2`オプションを付けると良いみたいです。
-```
-$ curl --http2 http://localhost:3000
-curl: (1) Received HTTP/0.9 when not allowed
-```
-ダメでした。
-
-さらに調べてみると、`--http2`ではなく`--http2-prior-knowledge`を付けると良いことがわかりました。
+ところで、PNG画像のバイナリ構造は通常下記のようになっています。
 
 ```
-$ curl --http2-prior-knowledge http://localhost:3000
-🦙 Welcome to my website 🦙
-Flag: Alpaca{REDACTED}
+シグネチャ
+IHDRチャンク
+その他のチャンクたち
+IENDチャンク
 ```
 
-なんとかフラグを得ることができました。
+まず最初のシグネチャは、固定の８バイトで次のようになっています
+```
+バイナリ：\x89 P N G \r \n \x1a \n
+１６進数：89 50 4e 47 0d 0a 1a 0a
+```
+このシグネチャによって、ブラウザやビューワーはPNG画像であると判断することができます。
 
-`--http2`の場合、まずHTTP/1.1で通信を始めてHTTP/2に対応しているか問い合わせるのに対し、`--http2-prior-knowledge`の場合はいきなりHTTP/2で通信を始めるという違いがあるようです。
+そして、シグネチャの次には必ずIHDRチャンクがくることが規格上決まっています。
 
-今回の問題では、暗号化していない通信プロトコル（http://）が使われているにもかかわらずサーバーはHTTP/2しか受け付けないというズレがあったため、最初から強制的にHTTP/2で通信を開始する`--http2-prior-knowledge`オプションが必要であったのだと考えられます。
+HDIRチャンクは次のようになっています。
+```
+Length: 4バイト
+Type: 4バイト
+Data: 13バイト
+CRC: 4バイト
+```
+※多くのファイル形式では数値はリトルエンディアンで記録されますが、PNG画像ではなぜかビッグエンディアンです。
 
-## その他
+ここで、IHDRチャンクのLengthは13バイト固定であり、TypeはIHDRなので、頭の８バイトは
+```
+バイナリ: \x00 \x00 \x00 \r I H D R
+１６進数: 00 00 00 0d 49 48 44 52
+```
+となります。
 
-先週の土日、SECCON Biginners CTF 2026にソロで参戦してきました。
 
-24問中13問解くことができ、630チーム中289位（45.9%）というまあまあそこそこな成績を残すことができました。
 
-Daily AlpacaHackのおかげで徐々に力がついているようです。
 
-いつもと違う雰囲気が新鮮で楽しめはしましたが、終わった後の疲労感がすごかったので、やっぱり１日１問でいいかなと思いました（笑）
+
+
+
+
+
