@@ -118,7 +118,7 @@ with open("flag.png", "wb") as f_out:
 調べたところ、画像からQRコードやバーコードを読み込むことができる`pyzbar`というモジュールを使うのが良さそうです。
 
 ```py
-# pip install pyzbar pillow
+# pip install pyzbar
 from pyzbar.pyzbar import decode
 from PIL import Image
 
@@ -129,6 +129,6 @@ for r in res:
     print("種類:", r.type)
 ```
 
-しかし、作り終わったあたりで、「このプログラムを作るくらいなら画像のフラグを手打ちした方が早かったんじゃないかな？」ということに気付いてしましました（笑）
+しかし、作り終わったあたりで、「このプログラムを作るくらいなら画像のフラグを手打ちした方が早かったんじゃないかな？」ということに気付いてしまいました（笑）
 
 まあ、次回以降も使えることがあるかもしれませんし・・・
