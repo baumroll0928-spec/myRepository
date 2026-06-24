@@ -129,6 +129,10 @@ fw.close()
 ```
 
 その後、`guess`を送って解答モードに入り、interactive()で入力を受け付けるようにします。
+```py
+io.sendlineafter(b"pt: ", b"guess")
+io.interactive()
+```
 
 このPythonスクリプトを実行すると、下記のようなSageMathスクリプトが出力されます。
 ```sage
