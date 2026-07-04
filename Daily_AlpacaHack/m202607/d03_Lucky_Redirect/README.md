@@ -127,7 +127,7 @@ docker compose down --rmi all
 ```py
 import requests
 
-URL = "localhost:3000/"
+URL = "http://localhost:3000/"
 
 res = requests.get(URL)
 print(res.status_code)
