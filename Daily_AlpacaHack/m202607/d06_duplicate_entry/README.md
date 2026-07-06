@@ -70,9 +70,9 @@ zip_file_path = 'c:/ctf/flag.zip'
 
 with zipfile.ZipFile(zip_file_path, 'r') as z:
     file_list = [info for info in z.infolist() if info.filename == 'flag.txt']
-    correct_index = 50
-    if len(file_list) > correct_index:
-        target_file = file_list[correct_index]
+    target_index = 50
+    if len(file_list) > target_index:
+        target_file = file_list[target_index]
         with z.open(target_file) as f:
             print(f.read())
 ```
