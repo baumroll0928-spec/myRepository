@@ -79,7 +79,7 @@ def poly1305(r_bytes:bytes, s_bytes:bytes, msg_bytes:bytes):
 よって、てきとーなmsgについて、
 ```
 tag1 = Poly1305_MAC(r, s, msg)
-tag0 = Poly1305_MAC(r, b"00"*16, msg)
+tag0 = Poly1305_MAC(r, b"\x00"*16, msg)
 ```
 がわかれば、
 ```
