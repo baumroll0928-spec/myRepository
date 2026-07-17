@@ -49,7 +49,7 @@ ValueError: password cannot be longer than 72 bytes, truncate manually if necess
 
 Dockerで実行すると正しく実行できるようですが、この72バイトというのはこの問題に何か関係あるのでしょうか？
 
-それはさておき、bcryptは、レインボー攻撃やブルートフォース攻撃に対抗できるように設計されたパスワードハッシュ化関数です。
+それはさておき、bcryptは、レインボーテーブル攻撃やブルートフォース攻撃に対抗できるように設計されたパスワードハッシュ化関数です。
 
 Pythonのbcryptモジュールでは、
 ```py
