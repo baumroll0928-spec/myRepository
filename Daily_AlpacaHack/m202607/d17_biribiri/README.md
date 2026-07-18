@@ -90,7 +90,7 @@ False
 import json
 import bcrypt
 
-SECRET = b"0123456789abcdef0123456789abcdef"
+SECRET = bytes.fromhex("0123456789abcdef0123456789abcdef")
 mysalt = bcrypt.gensalt()
 
 ticket = json.dumps(
