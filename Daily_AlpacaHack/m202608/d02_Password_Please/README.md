@@ -68,8 +68,10 @@ if [[ $secret == "$password" ]]; then
 <details>
 <summary>do the mathのネタバレあり</summary>
 
+    ```
     Password: a[$(cat /flag.txt)]
     Access denied
+    ```
 
 </details>
 
