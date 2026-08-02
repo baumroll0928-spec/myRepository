@@ -67,10 +67,10 @@ if [[ $secret == "$password" ]]; then
 
 <details>
 <summary>do the mathのネタバレあり</summary>
-```
-Password: a[$(cat /flag.txt)]
-Access denied
-```
+
+    Password: a[$(cat /flag.txt)]
+    Access denied
+
 </details>
 
 しかし、`==`と`-Eq`では評価の方法が違うのか、今回の問題では同じ方法は使えませんでした。
