@@ -300,8 +300,8 @@ input[i] = encoded[i] - 0x37 - i * 8
 encoded = bytes.fromhex("78 AB B7 (略) 64 7A 8C")
 
 flag_list = []
-for i, c in enumerate(encoded):
-    flag_list.append((c - i * 8 - 0x37) & 0xff)
+for i in range(60): 
+    flag_list.append((encoded[i] - i * 8 - 0x37) & 0xff)
 
 flag = bytes(flag_list)
 print(f"{flag = }")
