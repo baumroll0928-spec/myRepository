@@ -22,6 +22,16 @@
 
 `SYS_reboot`は`sys/syscall.h`で定義されているrebootを意味するシステムコールの番号`169`です。
 
+```c
+#include <stdio.h>
+#include <sys/syscall.h>
+int main(void)
+{
+    printf("SYS_reboot: %d\n", SYS_reboot); // SYS_reboot: 169
+    return 0;
+}
+```
+
 ```
 $ ausyscall --dump | grep 169
 169     reboot
