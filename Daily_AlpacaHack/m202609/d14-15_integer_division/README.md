@@ -6,6 +6,7 @@
 
 整数除算では、0除算にだけ気をつければ大丈夫ですよね？
 
+### chal.c
 ```c
 int main(void) {
     int x, y;
@@ -27,7 +28,7 @@ int main(void) {
     return 0;
 }
 ```
-server.py
+### server.py
 ```py
 completed_process = subprocess.run(["./chal"])
 if completed_process.returncode != 0:
