@@ -113,14 +113,14 @@ m_p = 223318757821
 略
 T0 = o_p * Sp
 T1 = (o_p + 1) * Sp
-T  = m_p * Sp
+Tm = m_p * Sp
 print(T0)
 print(T1)
 print(Sp)
 assert T1 == Sp
-print(T)
+print(Tm)
 print(Tp)
-assert T == Tp
+assert Tm == Tp
 print("OK")
 ```
 ```
