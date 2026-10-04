@@ -93,7 +93,7 @@ class VendingMachine:
 
 それは、フラグの`f`やその他の関係ない記号の入力を弾く入力チェックの部分です。
 
-Befure:
+Before:
 ```py
         if mark not in ['a', 'b', 'c', 'd', 'e']: # No 'f'? Hmm...
 ```
