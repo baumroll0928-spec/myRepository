@@ -18,8 +18,6 @@ for i in range(0, len(flag), BLOCK_SIZE):
     y = OFFSET + int.from_bytes(block[HALF_SIZE:], "big")
 
     print([sum(v**k for v in (x, y)) for k in range(1, 3)])
-
-)
 ```
 
 ## 概要
