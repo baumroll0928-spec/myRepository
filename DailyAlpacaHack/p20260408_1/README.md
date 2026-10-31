@@ -68,9 +68,9 @@ sh: 1: /app/flag.txt: Alpaca{REDACTED}: not found
 
 これは、ファイルの中身をそのシェルでコマンドとして実行するコマンドです。
 
-試しに`mycmd`というファイルに`ls`と書き込んで`source mycmd`や`$ . mycmd`を実行してみると、この`ls`が実行されることがわかります。
+試しに`mycmd`というファイルに`ls`と書き込んで`$ source mycmd`や`$ . mycmd`を実行してみると、この`ls`が実行されることがわかります。
 
-このとき`./mycnd`として実行するには`mycmd`ファイルに実行権限`+x`が必要ですが、`source mycmd`で実行する場合は必要ないようです。
+このとき`$ ./mycnd`として実行するには`mycmd`ファイルに実行権限`+x`が必要ですが、`$ source mycmd`で実行する場合は必要ないようです。
 
 今回の問題では、ファイル`/app/flag.txt`にフラグ`Alpaca{...}`が書かれています。
 
